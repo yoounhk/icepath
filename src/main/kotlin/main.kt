@@ -1,5 +1,6 @@
 import java.util.*
 
+// TODO Point, Level 클래스 만들기
 fun main(args: Array<String>) {
 
     var level = arrayOf(
@@ -19,8 +20,8 @@ fun main(args: Array<String>) {
         draw(level)
         println()
         print("input(quit: q, reset: r) > ")
-        key = sc.nextLine()[0]
-        if (key == 'w') {
+        key = sc.nextLine()[0] // TODO: 입력 좀 더 스마트하게 받기
+        if (key == 'w') { // TODO: 코드 분리하기
             level = move(level, playerX, playerY, -1, 0)
             playerX--
             println(
@@ -52,7 +53,7 @@ fun main(args: Array<String>) {
                         "currentX: $playerX\n" +
                         "currentY: $playerY\n"
             )
-        } else if (key == 'r') {
+        } else if (key == 'r') { // TODO 초기화 깔끔하게 바꾸기
             level = arrayOf(
                 arrayOf('*', '*', '*', '*', '*'),
                 arrayOf('*', '.', '.', '.', '*'),
@@ -66,7 +67,8 @@ fun main(args: Array<String>) {
     }
 }
 
-
+// TODO 인덱스 바깥 예외처리
+// TODO swap이 아닌  정확히 이동으로 변경하기
 fun move(level: Array<Array<Char>>,
          playerX: Int, playerY: Int,
          distanceX: Int, distanceY: Int): Array<Array<Char>> {
