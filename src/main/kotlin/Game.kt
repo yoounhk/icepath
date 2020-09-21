@@ -21,7 +21,7 @@ class Game {
 
 
 
-    fun moveUp() {
+    fun moveUp() { // TODO 이동과 승리를 분리 up, down을 left, right처럼 조건문으로 변경
         for (i in level.indices) {
             if(this.checkWin()) this.win()
             for (j in level[i].indices) {

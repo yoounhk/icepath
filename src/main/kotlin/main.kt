@@ -1,6 +1,5 @@
 import java.util.*
 
-// TODO Point, Level 클래스 만들기
 fun main(args: Array<String>) {
 
     var game = Game()
