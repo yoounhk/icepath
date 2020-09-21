@@ -22,39 +22,30 @@ class Game {
 
 
     fun moveUp() {
-        for (i in level.indices) {
-            if(this.checkWin()) this.win()
-            for (j in level[i].indices) {
-                if (i > 0
-                    && level[pRow - 1].length >= j
-                    && j == pCol
-                    && level[pRow - 1][pCol] != '*'
-                ) {
-                    level[pRow] = setCharAt(level[pRow], j, '.')
-                    pRow--
-                    level[pRow] = setCharAt(level[pRow], j, '@')
-                    println("1칸이동")
-                }
+        while ( pRow - 1 >= 0 && level[pRow-1][pCol] != '*')
+        {
+            if (this.checkWin()) this.win()
+            if (pRow - 1 >= 0) {
+                level[pRow] = setCharAt(level[pRow], pCol, '.')
+                pRow--
+                level[pRow] = setCharAt(level[pRow], pCol, '@')
+                println("1칸이동")
             }
         }
+
+
     }
 
 
 
     fun moveDown() {
-        for (i in level.indices) {
+        while(pRow + 1 < level.size && level[pRow+1][pCol] != '*') {
             if(this.checkWin()) this.win()
-            for (j in level[i].indices) {
-                if (i < level.size - 1
-                    && level[pRow + 1].length >= j
-                    && j == pCol
-                    && level[pRow + 1][pCol] != '*'
-                ) {
-                    level[pRow] = setCharAt(level[pRow], j, '.')
-                    pRow++
-                    level[pRow] = setCharAt(level[pRow], j, '@')
-                    println("1칸이동")
-                }
+            if(pRow + 1 < level.size) {
+                level[pRow] = setCharAt(level[pRow], pCol, '.')
+                pRow++
+                level[pRow] = setCharAt(level[pRow], pCol, '@')
+                println("1칸이동")
             }
         }
     }
